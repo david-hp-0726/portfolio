@@ -20,7 +20,7 @@ export type EducationItem = {
 export const ABOUT: AboutSection = {
     heading: 'About',
     body: [
-        "I’m an undergraduate in Computer Engineering at Georgia Tech. My research interests lie at the intersection of robot manipulation, imitation learning, and reinforcement learning, with an emphasis on data‑efficient control for real‑world systems.",
+        "I’m a fourth-year Computer Engineering Student at Georgia Tech. I’m interested in how robot arms can learn to perceive and act through data-driven methods, especially using imitation and reinforcement learning to achieve vision-based manipulation in the real world.",
         "I currently support ECE 4560 (Intro to Automation and Robotics) as a Course Assistant, where I help maintain infrastructure for the myCobot 280 platform: Python control libraries, ROS 2 integration, and lab tooling for dataset collection and evaluation.",
     ],
 };

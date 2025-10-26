@@ -5,6 +5,11 @@ export type LinkMap = {
     email?: string; // mailto: URL
 };
 
+export type Thread = {
+    name: string;
+    href: string;
+};
+
 
 export type SiteContent = {
     name: string;
@@ -13,14 +18,16 @@ export type SiteContent = {
     email: string; // mailto: URL
     links: LinkMap;
     headshot: string; // path or URL
+    threads: Thread[];
 };
 
 
 export const SITE: SiteContent = {
     name: 'David Chen',
-    role: 'Computer Engineering Major at Georgia Tech',
+    role: 'Computer Engineering Student at Georgia Tech',
     intro:
-        "I am broadly interested in robot learning—particularly reinforcement learning and its applications to robotic manipulators. I also explore imitation learning and related approaches. I am currently a Course Assistant for ECE 4560: Intro to Automation and Robotics, helping to build robot infrastructure for the myCobot 280 manipulator, including Python and ROS 2 control interfaces.",
+        `I am passionate about robotics - especially the challenge of allowing robots to perceive, reason, and act directly from sensory input. 
+            My research interest is in exploring how imitation learning and reinforcement learning can be used to teach robot arms visuomotor skills, allowing them to learn manipulation behaviors through experience.`,
     email: 'mailto:xchen3019@gatech.edu',
     links: {
         github: 'https://github.com/david-hp-0726',
@@ -28,4 +35,14 @@ export const SITE: SiteContent = {
         cv: '/cv/David_Chen_CV.pdf',
     },
     headshot: '/images/headshot.jpg',
+    threads: [
+        {
+            name: "Distributed System & Software Design Thread",
+            href: "https://ece.gatech.edu/distributed-system-software-design",
+        },
+        {
+            name: "Robotics Autonomous Systems",
+            href: "https://ece.gatech.edu/robotics-autonomous-systems-thread",
+        },
+    ],
 };
