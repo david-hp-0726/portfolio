@@ -139,7 +139,7 @@ export default function ProjectsPage() {
     return (
         <div className="pt-14 pb-8 md:pt-20 md:pb-12">
             <Container>
-                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Projects</h1>
+                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Featured Projects</h1>
 
                 {/* same grid, but expandable items can span two columns */}
                 <div className="mt-6 grid md:grid-cols-2 gap-6">
