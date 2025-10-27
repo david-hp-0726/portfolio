@@ -24,6 +24,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Education */}
+                {/* Education */}
                 <section className="mt-10">
                     <h2 className="text-xl font-semibold tracking-tight">Education</h2>
                     <ul className="mt-4 space-y-4">
@@ -37,22 +38,36 @@ export default function AboutPage() {
                                         <p className="text-base font-semibold">{e.school}</p>
                                         <p className="text-sm text-gray-600 dark:text-gray-400">
                                             {e.degree}
-                                            {e.program ? ' • ' + e.program : ''}
                                         </p>
                                     </div>
                                     {e.dates && <p className="text-sm text-gray-500">{e.dates}</p>}
                                 </div>
-                                {e.details && (
-                                    <ul className="mt-3 list-disc pl-5 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                                        {e.details.map((d, i) => (
-                                            <li key={i}>{d}</li>
-                                        ))}
-                                    </ul>
+
+                                {/* GPA if present */}
+                                {e.gpa && (
+                                    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                                        GPA: {e.gpa}
+                                    </p>
+                                )}
+
+                                {/* Relevant Coursework */}
+                                {e.relevantCoursework && e.relevantCoursework.length > 0 && (
+                                    <div className="mt-3 text-sm text-gray-700 dark:text-gray-300">
+                                        <p className="font-medium text-gray-900 dark:text-gray-100">
+                                            Relevant Coursework:
+                                        </p>
+                                        <ul className="mt-1 list-disc pl-5 space-y-1">
+                                            {e.relevantCoursework.map((course, i) => (
+                                                <li key={i}>{course}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 )}
                             </li>
                         ))}
                     </ul>
                 </section>
+
 
                 {/* Skills */}
                 <section className="mt-10">

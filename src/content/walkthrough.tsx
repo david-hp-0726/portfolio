@@ -29,16 +29,10 @@ export default function SO101TeleopWalkthrough() {
                     connected to the computer via USB.
                 </p>
 
-                <div className="flex gap-4 justify-center">
+                <div className="w-full flex justify-center">
                     <img
-                        src="/images/follower_done.jpg"
-                        alt="Follower arm"
-                        className="w-1/4 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
-                    />
-                    <img
-                        src="/images/leader_done.jpg"
-                        alt="Leader arm"
-                        className="w-1/4 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
+                        src="/images/assembly.png"
+                        className="w-full rounded-lg object-contain border border-gray-200 dark:border-gray-700"
                     />
                 </div>
 
@@ -54,7 +48,7 @@ export default function SO101TeleopWalkthrough() {
                 <div className="w-full flex justify-center">
                     <img
                         src="/images/teleop.gif"
-                        className="w-1/4 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
+                        className="w-1/2 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
                     />
                 </div>
 
@@ -65,6 +59,12 @@ export default function SO101TeleopWalkthrough() {
                     synchronized <em>images</em>, <em>joint positions</em>, and <em>actions</em> at 30 Hz.
                     These recordings formed the dataset for imitation learning.
                 </p>
+                <div className="w-full flex justify-center">
+                    <img
+                        src="/images/demo.gif"
+                        className="w-1/2 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
+                    />
+                </div>
 
                 <h3 className="mt-10 text-xl font-semibold">4. Training the Behavioral Cloning Agent</h3>
                 <p>
