@@ -98,6 +98,18 @@ export default function SO101TeleopWalkthrough() {
                         className="w-1/2 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
                     />
                 </div>
+
+                <div className="w-full flex justify-center">
+                    <div className="w-full max-w-2xl aspect-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/nnYnia2P2IU"
+                            title="LeRobot SO-101 Learning Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full rounded-lg border border-gray-200 dark:border-gray-700"
+                        />
+                    </div>
+                </div>
             </div>
         </section>
     );
