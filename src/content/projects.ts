@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
         description:
             'Implemented a collision probability predictor in a MuJoCo differential-drive env with randomized obstacles; collected 272k LiDAR+state samples; trained a 3‑layer PyTorch MLP (val≈0.0835, recall≈0.998, F1≈0.49).',
         image: '/images/cpp.gif',
-        repo: 'https://github.com/david-hp-0726?tab=repositories',
+        repo: 'https://github.com/david-hp-0726/lsac-cpp-replication',
     },
     {
         name: 'AI Chatbot for Medical Devices',
@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     {
         name: "SO-101 Dual-Arm Teleoperation",
         description:
-            "Leader–follower teleoperation + imitation learning (10 demos, 5,557 datapoints).",
+            "Leader–follower teleoperation + imitation learning.",
         image: "/images/teleop.gif",
         expandable: true,
         fullRow: true,

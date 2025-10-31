@@ -52,46 +52,29 @@ export default function SO101TeleopWalkthrough() {
                     />
                 </div>
 
-                <h3 className="mt-10 text-xl font-semibold">3. Recording Demonstrations</h3>
+                <h3 className="mt-10 text-xl font-semibold">3. Demonstrations & Model Training (1st Attempt)</h3>
                 <p>
-                    Using a Python script, I recorded 10 expert trajectories totaling{" "}
-                    <strong>5,557 datapoints</strong>. Each episode logs
-                    synchronized <em>images</em>, <em>joint positions</em>, and <em>actions</em> at 30 Hz.
+                    Using a Python script, I recorded myself doing 10 demonstrations of picking up a black phone holder (an arbitrary object choice). This amounts to 10 expert trajectories totaling{" "}
+                    <strong>5,557 datapoints</strong>. Each datapoint consists of a camera image and a 6-D vector of joint positions.
                     These recordings formed the dataset for imitation learning.
                 </p>
-                <div className="w-full flex justify-center">
-                    <img
-                        src="/images/demo.gif"
-                        className="w-1/2 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
-                    />
-                </div>
-
-                <h3 className="mt-10 text-xl font-semibold">4. Training the Behavioral Cloning Agent</h3>
-                <p>
-                    The dataset recorded during teleoperation contained synchronized{" "}
-                    <strong>camera images of the task space</strong>, <strong>leader actions</strong> (the commanded joint
-                    positions), and <strong>follower feedback</strong> (measured joint positions). Each
-                    entry represented one moment of interaction—what the operator saw, what command
-                    they sent, and how the robot responded. During training, the BC model used the
-                    images as input and learned to predict the leader’s joint commands as targets.
-                </p>
 
                 <p>
-                    The model was trained for 20 epochs with a 90 / 10 train–validation split. It
+                    A simple CNN was trained to predict joint commands from camera images for 20 epochs with a 90 / 10 train–validation split. It
                     reached a final <strong>train MSE of 0.03</strong> and <strong>validation MSE of
-                        0.02</strong>. With only 10 demonstration episodes (about 5,500 datapoints), the
-                    dataset was too small for robust grasping behavior, but the network still picked
-                    up some meaningful correlations between vision and motion.
+                        0.02</strong>.
                 </p>
 
+                <h3 className="mt-10 text-xl font-semibold">4.  Learning Outcomes (1st Attempt)</h3>
                 <p>
-                    Interestingly, the model learned to detect and move toward <em>black objects</em> in
-                    the scene—the same color as the training target. However, this also caused
-                    false triggers: dark <em>shadows</em> occasionally prompted the arm to move as if
-                    they were objects, showing how sensitive the learned policy is to lighting and
-                    color biases.
+                    With only 10 demonstrations (about 5,500 datapoints), the
+                    dataset was too small to produce any grasping behavior. However, the
+                    network still captured two clear correlations between vision and motion:
                 </p>
-
+                <ol className="list-inside mt-2 space-y-1">
+                    <li><strong>(1)</strong>it learned to detect and move toward black objects in the scene—the same color as the training target; and</li>
+                    <li><strong>(2)</strong>it occasionally reacted to dark shadows as if they were objects, suggesting that it has picked up spurious correlation between motion and shadow.</li>
+                </ol>
                 <div className="flex justify-center">
                     <img
                         src="/images/arm0.gif"
@@ -99,6 +82,46 @@ export default function SO101TeleopWalkthrough() {
                     />
                 </div>
 
+                <h3 className="mt-10 text-xl font-semibold">5. Demonstrations & Model Training (2nd Attempt)</h3>
+                <p className="mt-2">
+                    To improve on the first iteration, I made several key changes to the training process:
+                </p>
+                <ol className="list-decimal list-inside mt-2 space-y-1">
+                    <li>
+                        Recorded <strong>50 demonstrations</strong> at 10&nbsp;Hz (compared to 30&nbsp;Hz before), collecting a more diverse set of about 9,600 datapoints.
+                    </li>
+                    <li>
+                        Switched to a <strong>pink cube</strong> target to improve color contrast and avoid confusion with shadows.
+                    </li>
+                    <li>
+                        Maintained <strong>consistent lighting conditions</strong> between demonstrations and testing.
+                    </li>
+                    <li>
+                        Replaced the simple CNN with a ResNet-18. After 20 epoches and with a 90/10 train-test split, the model achieved a <strong>train MSE of 0.027</strong> and <strong>validation MSE of
+                            0.040</strong>.
+                    </li>
+                </ol>
+
+                <div className="w-full flex justify-center">
+                    <img
+                        src="/images/demo.gif"
+                        className="w-1/2 rounded-lg object-contain border border-gray-200 dark:border-gray-700"
+                    />
+                </div>
+
+                <h3 className="mt-10 text-xl font-semibold">6. Learning Outcomes (2nd Attempt)</h3>
+                Still, the model failed to acquire the ability to capture objects. However, it does learn to associate interesting actions with different environmental cues:
+                <ol className="list-inside mt-2 space-y-1">
+                    <li>
+                        <strong>(1)</strong> Learned to <strong>hover above pink objects</strong> in the scene, showing it could localize the target based on color.
+                    </li>
+                    <li>
+                        <strong>(2)</strong> There is a strong tendency to <strong>follow shadows</strong>, likely because shadows were highly prominent in the training data.
+                    </li>
+                    <li>
+                        <strong>(3)</strong> Return to a <strong>home position</strong> whenever the pink cube was detected inside the bowl.
+                    </li>
+                </ol>
                 <div className="w-full flex justify-center">
                     <div className="w-full max-w-2xl aspect-video">
                         <iframe
@@ -110,7 +133,25 @@ export default function SO101TeleopWalkthrough() {
                         />
                     </div>
                 </div>
+
+                <h3 className="mt-10 text-xl font-semibold">7. Reflection & Future Work</h3>
+                Despite picking up interesting behaviors, the robot was unable to learn the intended skill of capturing objects. Several factors in the training setup likely contributed to this outcome:
+                <ol className=" list-inside mt-2 space-y-1">
+                    <li>
+                        <strong>(1)</strong> T training images contained a strong presence of <strong>shadows</strong>, and the model likely learned to associate dark regions with motion. This could have been entirely avoided by masking the workspace with a black cloth.
+                    </li>
+                    <li>
+                        <strong>(2)</strong> The camera was placed at a <strong>tilted, side-looking angle</strong>, rather than directly overhead. This makes it difficult to encode the (x,y) coordinates of the arm despite a clearer representation of z coordinates. Arguably, (x,y) coordinates are more informative of the arm's motion.
+                    </li>
+                    <li>
+                        <strong>(3)</strong> The model's prediction is based solely on camera images. The prediction input could have been augmented with previous joint positions to allow the robot to better localize itself.
+                    </li>
+                    <li>
+                        <strong>(4)</strong> Out of all training images, a small percentage are object-capturing frames, which limits the robot's ability to learn precise grasping behavior.
+                    </li>
+                </ol>
+
             </div>
-        </section>
+        </section >
     );
 }
