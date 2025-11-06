@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
         controls: false,
     },
     {
-        name: "SO-101 Dual-Arm Teleoperation",
+        name: "(Discovery Project) SO-101 Dual-Arm Teleoperation",
         description:
             "Leader–follower teleoperation + imitation learning.",
         image: "/images/teleop.gif",
