@@ -51,7 +51,7 @@ function ExpandableProjectCard({ p }: { p: Project }) {
         <article
             className={cx(
                 "rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-900",
-                "md:col-span-2" // full row on md+ grids
+                open && "md:col-span-2" // ⬅️ only span 2 cols when expanded
             )}
         >
             {/* header media */}
@@ -72,48 +72,42 @@ function ExpandableProjectCard({ p }: { p: Project }) {
                 />
             ) : null}
 
-            {/* header text + toggle + repo */}
-            <div className="p-5">
-                <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="p-5 space-y-3">
+                {/* Title + repo */}
+                <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold">{p.name}</h3>
-
                     <div className="flex items-center gap-3">
-                        {/* ✅ repo link if present */}
                         {p.repo && (
-                            <a
-                                href={p.repo}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:underline"
-                            >
+                            <a href={p.repo} target="_blank" rel="noreferrer"
+                                className="inline-flex items-center gap-1 text-sm hover:underline">
                                 Code <ExternalLink className="w-4 h-4" />
                             </a>
                         )}
-
-                        {/* expand/collapse button */}
-                        <button
-                            onClick={() => setOpen((v) => !v)}
-                            className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium border hover:bg-gray-50 dark:hover:bg-gray-800"
-                            aria-expanded={open}
-                            aria-controls={`detail-${p.name.replace(/\s+/g, "-")}`}
-                        >
-                            {open ? (
-                                <>
-                                    Hide details <ChevronUp className="ml-1 h-4 w-4" />
-                                </>
-                            ) : (
-                                <>
-                                    Read walkthrough <ChevronDown className="ml-1 h-4 w-4" />
-                                </>
-                            )}
-                        </button>
                     </div>
                 </div>
 
-                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                {/* Expand button — own row when collapsed */}
+                <button
+                    onClick={() => setOpen((v) => !v)}
+                    className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium border hover:bg-gray-50 dark:hover:bg-gray-800"
+                >
+                    {open ? (
+                        <>
+                            Hide details <ChevronUp className="ml-1 h-4 w-4" />
+                        </>
+                    ) : (
+                        <>
+                            Read walkthrough <ChevronDown className="ml-1 h-4 w-4" />
+                        </>
+                    )}
+                </button>
+
+                {/* Description */}
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                     {p.description}
                 </p>
             </div>
+
 
             {/* collapsible body */}
             <div
@@ -134,6 +128,7 @@ function ExpandableProjectCard({ p }: { p: Project }) {
         </article>
     );
 }
+
 
 export default function ProjectsPage() {
     return (

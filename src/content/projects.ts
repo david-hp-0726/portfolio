@@ -15,6 +15,16 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
+        name: "(Discovery Project) SO-101 Dual-Arm Teleoperation",
+        description:
+            "Leader–follower teleoperation + imitation learning.",
+        image: "/images/teleop.gif",
+        expandable: true,
+        fullRow: true,
+        detailImport: () => import("./walkthrough.tsx"),
+        repo: "https://github.com/david-hp-0726/so101-bc"
+    },
+    {
         name: 'Autonomous Car Collision Predictor',
         description:
             'Implemented a collision probability predictor in a MuJoCo differential-drive env with randomized obstacles; collected 272k LiDAR+state samples; trained a 3‑layer PyTorch MLP (val≈0.0835, recall≈0.998, F1≈0.49).',
@@ -29,16 +39,6 @@ export const PROJECTS: Project[] = [
         repo: 'https://github.com/david-hp-0726/MedViewAISystem-Frontend',
         autoplay: true,
         controls: false,
-    },
-    {
-        name: "(Discovery Project) SO-101 Dual-Arm Teleoperation",
-        description:
-            "Leader–follower teleoperation + imitation learning.",
-        image: "/images/teleop.gif",
-        expandable: true,
-        fullRow: true,
-        detailImport: () => import("./walkthrough.tsx"),
-        repo: "https://github.com/david-hp-0726/so101-bc"
     }
 ];
 
