@@ -3,11 +3,11 @@ export default function SO101TeleopWalkthrough() {
         <section className="prose dark:prose-invert max-w-3xl mx-auto py-16">
             <div className="prose dark:prose-invert max-w-none space-y-4">
                 <h2 className="text-2xl font-semibold mb-4">
-                    SO-101 Dual-Arm Teleoperation Walkthrough
+                    End-to-End Robot Learning via Teleoperation
                 </h2>
 
                 <p>
-                    This project explores how humans can teach robots through direct
+                    This project explores how we can transfer skills to robots through direct
                     demonstration. I built a <strong>dual-arm teleoperation setup</strong>
                     —one arm acts as the <em>leader</em> controlled by a human operator and the other as the
                     the <em>follower</em> (robot being taught). Using this system, I collected
