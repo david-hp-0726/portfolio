@@ -15,9 +15,9 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
-        name: "(Discovery Project) SO-101 Dual-Arm Teleoperation",
+        name: "(Discovery Project) End-to-End Robot Learning via Teleoperation",
         description:
-            "Leader–follower teleoperation + imitation learning.",
+            "SO-101 Leader & Follower Arm and Imitation Learning",
         image: "/images/teleop.gif",
         expandable: true,
         fullRow: true,
