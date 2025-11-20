@@ -8,7 +8,7 @@ export default function SO101TeleopWalkthrough() {
 
                 <p>
                     This project explores how we can transfer skills to robots through direct
-                    demonstration. I built a <strong>dual-arm teleoperation setup</strong>
+                    demonstrations. I built a <strong>dual-arm teleoperation setup</strong>
                     —one arm acts as the <em>leader</em> controlled by a human operator and the other as the
                     the <em>follower</em> (robot being taught). Using this system, I collected
                     motion data and trained a neural network to use images to predict robot joint motions.
@@ -16,8 +16,7 @@ export default function SO101TeleopWalkthrough() {
 
                 <h3 className="mt-10 text-xl font-semibold">1. Assembly & Servos Setup</h3>
                 <p>
-                    Both arms were purchased as kits that included pre-printed structural
-                    parts, servo motors, and control boards. The white arm serves as the <strong>follower</strong>, while the black arm is
+                    Each SO-101 arm is a 6-DOF manipulator built from 3D-printed links connected by six servos. The white arm serves as the <strong>follower</strong>, while the black arm is
                     the <strong>leader</strong>. In this setup, the leader arm captures the human operator's movements, and the
                     the follower arm replicates those motions in real-time.
                 </p>
