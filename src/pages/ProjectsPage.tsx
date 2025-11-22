@@ -1,5 +1,5 @@
 // Updated ProjectsPage.tsx with video support removed and dropdown-only descriptions
-import React, { useRef, useEffect, useState, Suspense, lazy } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { PROJECTS, type Project } from "../content/projects";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
