@@ -48,8 +48,10 @@ export const EDUCATION = [
         degree: "B.S. in Computer Engineering",
         dates: "2025–present",
         relevantCoursework: [
-            "ECE 3550 - Feedback Control Systems",
             "CS 3630 - Introduction to Robotics and Perception",
+            "ECE 2035 - Programming for Hardware/Software Systems",
+            "ECE 3550 - Feedback Control Systems",
+            "ECE 3600 - Computer Communications",
         ],
     },
     {
