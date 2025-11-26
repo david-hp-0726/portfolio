@@ -21,7 +21,7 @@ export const PROJECTS: Project[] = [
             "Customized the full hardware stack for a suction gripper, including a MOSFET - based pump / valve switching circuit, GPIO interfaces, and 3D - printed mechanical adapter for mounting onto the arm.",
             "Diagnosed and repaired two malfunctioning electric grippers—opened and serviced the hardware, coordinated with vendor technical support, and successfully secured two replacement servos at no cost."
         ],
-        youtube: "https://www.youtube.com/watch?v=3nBySYKasM8"
+        youtube: "https://www.youtube.com/embed/3nBySYKasM8"
     },
     {
         name: "End-to-End Robot Learning via Teleoperation",
