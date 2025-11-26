@@ -5,12 +5,24 @@ export type Project = {
     image?: string;
     expandable?: boolean;
     detailImport?: () => Promise<{ default: React.ComponentType }>;
-    bullets?: string[]; // ← new: resume-style bullet points
+    bullets?: string[];
+    youtube?: string;
 };
 
 
 
 export const PROJECTS: Project[] = [
+    {
+        name: "Robotics Infrastructure Developer, IVALab",
+        image: "/images/click_to_capture.gif",
+        bullets: [
+            "Worked under the guidance of Dr. Patricio Vela to build a full Python package for the MyCobot280 Arm, including functions for kinematics, gripper control, trajectory recording, and coordinate frame management (3 modules, 50 + functions).",
+            "Collaborated on ArUco-based camera calibration and implemented “click-to-capture” vision-guided picking pipeline.",
+            "Customized the full hardware stack for a suction gripper, including a MOSFET - based pump / valve switching circuit, GPIO interfaces, and 3D - printed mechanical adapter for mounting onto the arm.",
+            "Diagnosed and repaired two malfunctioning electric grippers—opened and serviced the hardware, coordinated with vendor technical support, and successfully secured two replacement servos at no cost."
+        ],
+        youtube: "https://www.youtube.com/watch?v=3nBySYKasM8"
+    },
     {
         name: "End-to-End Robot Learning via Teleoperation",
         image: "/images/teleop.gif",

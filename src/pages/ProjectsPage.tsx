@@ -24,6 +24,8 @@ function ProjectCard({ p }: { p: Project }) {
                 <img className="w-full aspect-video object-cover" src={p.image} alt={p.name} />
             )}
 
+
+
             <div className="p-5 space-y-3">
                 <div className="flex items-start justify-between gap-3">
                     <h3 className="text-lg font-semibold">{p.name}</h3>
@@ -71,11 +73,23 @@ function ProjectCard({ p }: { p: Project }) {
                                         <li key={i}>{b}</li>
                                     ))}
                                 </ul>
+                                {p.youtube && (
+                                    <div className="mt-3 w-full aspect-video">
+                                        <iframe
+                                            className="w-full h-full"
+                                            src={p.youtube}
+                                            title={p.name}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </>
                 )}
             </div>
+
         </article>
     );
 }
@@ -152,7 +166,7 @@ export default function ProjectsPage() {
     return (
         <div className="pt-14 pb-8 md:pt-20 md:pb-12">
             <Container>
-                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Featured Projects</h1>
+                <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Featured Projects & Experience</h1>
                 <div className="mt-6 grid md:grid-cols-2 gap-6">
                     {PROJECTS.map((p) =>
                         p.expandable ? (
