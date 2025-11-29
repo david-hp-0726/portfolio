@@ -31,6 +31,16 @@ export const PROJECTS: Project[] = [
         repo: "https://github.com/david-hp-0726/so101-bc"
     },
     {
+        name: "Robojackets Software Training Project (ROS2/C++)",
+        image: "/images/robojackets.gif",
+        repo: "https://github.com/david-hp-0726/robojackets-ros2",
+        bullets: [
+            "Implemented camera-based obstacle detection using HSV filtering to generate top-down occupancy grids.",
+            "Built key components of a SLAM pipeline: implemented odometry sensor model and particle-filter logic for localization, and a mapping node that uses TF transforms to fuse obstacle detections into a global occupancy grid.",
+            "Developed a hill-climbing optimization module that samples terrain via a ROS service and steer towards maximum-elevation goal points."
+        ]
+    },
+    {
         name: 'Autonomous Car Collision Predictor',
         bullets: [
             "Built a collision-prediction model using LiDAR and vehicle state data, trained on 272k labeled samples.",
