@@ -37,7 +37,7 @@ export const SITE: SiteContent = {
     headshot: '/images/headshot.jpg',
     threads: [
         {
-            name: "Distributed System & Software Design Thread",
+            name: "Distributed System & Software Design",
             href: "https://ece.gatech.edu/distributed-system-software-design",
         },
         {
