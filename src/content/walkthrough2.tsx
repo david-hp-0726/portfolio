@@ -9,7 +9,7 @@ export default function SO101ImitationLearningWalkthrough2() {
                 <p>
                     This project is a 3rd attempt to train a IL policy to perform pick-and-place directly from observation images. A more challenging
                     scenario of picking up bottles is used. The improvements over the previous iteration include: (1) a much larger training dataset (2)
-                    scene covered in black cloth to reduce the impact of shadow (3) a better camera angle giving a top-down view.
+                    scene covered in black cloth to reduce the impact of shadow (the presence of which caused the policy to chase shadows rather than pick up objects previously) (3) a better camera angle giving a top-down view.
                 </p>
 
                 <h3 className="mt-10 text-xl font-semibold">1. Training Data Collection</h3>
