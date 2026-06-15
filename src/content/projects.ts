@@ -13,6 +13,13 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
+        name: "SO101 End-to-End Imitation Learning 3rd Attempt",
+        image: "/images/teleop2.gif",
+        expandable: true,
+        detailImport: () => import("./walkthrough2.tsx"),
+        repo: "https://github.com/david-hp-0726/so101-bc-v2"
+    },
+    {
         name: "Robotics Infrastructure Developer, IVALab",
         image: "/images/click_to_capture.gif",
         bullets: [
@@ -24,7 +31,7 @@ export const PROJECTS: Project[] = [
         youtube: "https://www.youtube.com/embed/3nBySYKasM8"
     },
     {
-        name: "End-to-End Robot Learning via Teleoperation",
+        name: "SO101 End-to-End Imitation Learning 1st & 2nd Attempts",
         image: "/images/teleop.gif",
         expandable: true,
         detailImport: () => import("./walkthrough.tsx"),
