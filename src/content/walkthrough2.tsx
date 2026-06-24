@@ -17,6 +17,9 @@ export default function SO101ImitationLearningWalkthrough2() {
                     I collected <strong>100 teleoperated demonstrations</strong> of bottle pick-and-place,
                     totaling <strong>70,904 samples</strong>. Each sample stores the current camera image,
                     the current 6-D robot proprioceptive state, and the demonstrated future joint actions.
+                    The placement of the container and the bottle are randomized. In the demos, bottles are captured 
+                    by the cap when upright, or by the body when lying on their side. To introduce error-recovery 
+                    behavior, I purposefully allowed demonstrations that involve multiple regrasps.
                 </p>
 
                 <div className="w-full flex justify-center">
