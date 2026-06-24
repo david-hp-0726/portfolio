@@ -14,7 +14,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
     {
         name: "SO101 End-to-End Imitation Learning 3rd Attempt",
-        image: "/images/teleop2.gif",
+        image: "/images/error_recovery.gif",
         expandable: true,
         detailImport: () => import("./walkthrough2.tsx"),
         repo: "https://github.com/david-hp-0726/so101-bc-v2"
