@@ -13,14 +13,14 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
-        name: "VLM Image-Editing Guided Trajectory Generation",
+        name: "VLM Image-Editing Guided Trajectory Generation, Trustworthy Robotics Lab",
         video: "/videos/demos.mp4",
         bullets: [
             "Built a VLM-based task planner converting human instructions and RGB-D images into physically verified 6D object goal poses.",
             "Developed a perception module using VGGT for depth estimation and GroundingDINO + SAM2 + FoundationPose for pose estimation, and HunYuan3D for online mesh reconstruction.",
             "Designed a novel VLM reasoning interface that identifies incorrect translational and rotational components, refines candidate poses, and physically validates them in MuJoCo.",
             "Utilized AnyGrasp and OMPL RRT-Connect to generate grasps and collision-free trajectories, executed through ROS2 + Drake.",
-            "Achieved 74.07% task-planning and 71.76% real-robot execution success across nine manipulation tasks (160/216 and 155/216 trials), outperforming OmniManip (43.98%) and ReKep (32.87%) in task planning; parallel-world validation improved mesh-free execution from 42.59% to 60.19% (92/216 to 130/216).",
+            "Conducted experiments on a KUKA-iiwa-7 arm on nine manipulation tasks.",
         ]
     },
     {
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
         name: "Robotics Infrastructure Developer, IVALab",
         image: "/images/click_to_capture.gif",
         bullets: [
-            "Worked under the guidance of Dr. Patricio Vela to build a full Python package for the MyCobot280 Arm, including functions for kinematics, gripper control, trajectory recording, and coordinate frame management (3 modules, 50 + functions).",
+            "Built a full Python package for the MyCobot280 Arm, including functions for kinematics, gripper control, trajectory recording, and coordinate frame management (3 modules, 50 + functions).",
             "Collaborated on ArUco-based camera calibration and implemented “click-to-capture” vision-guided picking pipeline.",
             "Customized the full hardware stack for a suction gripper, including a MOSFET - based pump / valve switching circuit, GPIO interfaces, and 3D - printed mechanical adapter for mounting onto the arm.",
             "Diagnosed and repaired two malfunctioning electric grippers—opened and serviced the hardware, coordinated with vendor technical support, and successfully secured two replacement servos at no cost."
