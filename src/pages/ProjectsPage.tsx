@@ -1,7 +1,7 @@
-// Updated ProjectsPage.tsx with video support removed and dropdown-only descriptions
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { PROJECTS, type Project } from "../content/projects";
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
 function cx(...c: (string | false | undefined)[]) {
     return c.filter(Boolean).join(" ");
@@ -109,16 +109,8 @@ function ProjectCard({ p }: { p: Project }) {
 }
 
 function ExpandableProjectCard({ p }: { p: Project }) {
-    const [open, setOpen] = useState(false);
-    const Detail = p.detailImport ? lazy(p.detailImport) : null;
-
     return (
-        <article
-            className={cx(
-                "rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-900",
-                open && "md:col-span-2"
-            )}
-        >
+        <article className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-900">
             {/* Image only */}
             {p.image && (
                 <img className="w-full aspect-video object-contain" src={p.image} alt={p.name} />
@@ -141,37 +133,16 @@ function ExpandableProjectCard({ p }: { p: Project }) {
                     </div>
                 </div>
 
-                {/* Walkthrough dropdown */}
-                <button
-                    onClick={() => setOpen((v) => !v)}
-                    className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium border hover:bg-gray-50 dark:hover:bg-gray-800"
-                >
-                    {open ? (
-                        <>
-                            Hide details <ChevronUp className="ml-1 h-4 w-4" />
-                        </>
-                    ) : (
-                        <>
-                            Read walkthrough <ChevronDown className="ml-1 h-4 w-4" />
-                        </>
-                    )}
-                </button>
+                {p.walkthroughPath && (
+                    <Link
+                        to={p.walkthroughPath}
+                        className="inline-flex items-center rounded-lg px-3 py-1.5 text-sm font-medium border hover:bg-gray-50 dark:hover:bg-gray-800"
+                    >
+                        Read walkthrough <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                )}
             </div>
 
-            <div
-                className={cx(
-                    "transition-[grid-template-rows] duration-300 ease-in-out grid",
-                    open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                )}
-            >
-                <div className="overflow-hidden px-5 pb-6">
-                    {Detail && (
-                        <Suspense fallback={<div className="text-sm text-gray-500">Loading…</div>}>
-                            <Detail />
-                        </Suspense>
-                    )}
-                </div>
-            </div>
         </article>
     );
 }

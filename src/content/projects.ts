@@ -4,7 +4,7 @@ export type Project = {
     video?: string;
     image?: string;
     expandable?: boolean;
-    detailImport?: () => Promise<{ default: React.ComponentType }>;
+    walkthroughPath?: string;
     bullets?: string[];
     youtube?: string;
 };
@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
         name: "SO101 End-to-End Imitation Learning 3rd Attempt",
         image: "/images/error_recovery.gif",
         expandable: true,
-        detailImport: () => import("./walkthrough2.tsx"),
+        walkthroughPath: "/projects/so101-imitation-learning-3",
         repo: "https://github.com/david-hp-0726/so101-bc-v2"
     },
     {
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
         name: "SO101 End-to-End Imitation Learning 1st & 2nd Attempts",
         image: "/images/teleop.gif",
         expandable: true,
-        detailImport: () => import("./walkthrough.tsx"),
+        walkthroughPath: "/projects/so101-imitation-learning-1-2",
         repo: "https://github.com/david-hp-0726/so101-bc"
     },
     {

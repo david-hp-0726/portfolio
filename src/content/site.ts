@@ -26,8 +26,7 @@ export const SITE: SiteContent = {
     name: 'David Chen',
     role: 'Computer Engineering Student at Georgia Tech',
     intro:
-        `I am passionate about robotics - especially the challenge of allowing robots to perceive, reason, and act directly from sensory input. 
-            My research interest is in exploring how imitation learning and reinforcement learning can be used to teach robot arms visuomotor skills, allowing them to learn manipulation behaviors through experience.`,
+        `I am passionate about robotic manipulation - especially the challenge of utilizing foundation models to facilitate task-planning and reinforcement-learning and imitation-learning to train generalized controller policies.`,
     email: 'mailto:xchen3019@gatech.edu',
     links: {
         github: 'https://github.com/david-hp-0726',

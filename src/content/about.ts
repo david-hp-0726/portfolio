@@ -4,7 +4,10 @@ export type AboutSection = {
 };
 
 
-export type Skill = { name: string };
+export type Skill = {
+    category: string;
+    items: string[];
+};
 
 
 export type EducationItem = {
@@ -20,25 +23,33 @@ export type EducationItem = {
 export const ABOUT: AboutSection = {
     heading: 'About',
     body: [
-        "I’m a fourth-year student at Georgia Institute of Technology, working towards my second undergraduate degree in Computer Engineering. Prior to joining Georgia Tech, I completed a CS & Math degree at Emory University. I’m interested in how robot arms can learn to perceive and act through data-driven methods, especially using imitation and reinforcement learning to achieve vision-based manipulation in the real world.",
-        "I started college with a passion for building interactive experiences on the internet - websites, tools, and servers that people could engage with through a screen. Over time, that passion expanded from the digital to the physical: I wanted to build systems that sense and act in the physical world. That led me to robotics, where computer programs turn into tangible motion. At Emory, I built a foundation in algorithms, machine learning, and optimization, and at Georgia Tech, I’ve applied those skills to hands-on robotics projects",
-        "I currently support ECE 4560 Intro to Automation and Robotics as a Course Assistant, where I help develop Python interfaces for the MyCobot 280 manipulator. My contributions included creating a Python API with forward and inverse kinematics and URDF-based visualization, building command-line tools for robot control and trajectory recording, and designing a 3D-printed adapter to integrate a suction-cup gripper. I also collaborated on a vision-based grasping system that used a depth camera to localize objects and guide the arm in real time.",
-        // "I hope to build a career as a robotics machine learning engineer—someone who designs algorithms to allow robots to acquire useful skills. To get there, I plan to strengthen both my theoretical understanding and practical engineering skills. In the near term, that means deepening my knowledge of control theory, computer vision, and various robot learning paradigms and algorithms, while also learning how robots are actually deployed in the field. I want to build a strong foundation in embedded systems and low-level programming—especially C++—to better understand how perception and control algorithms run on real hardware. Alongside that, I’ll continue working on hands-on projects that connect learning-based methods to real robotic systems."
+        "I’m a computer engineering undergraduate at Georgia Tech interested in robotic manipulation and robot learning.",
+        "My research explores how vision-language and other foundation models can be leveraged to facilitate manipulation-task planning. I’m also interested in using reinforcement learning and imitation learning to train generalized control policies.",
     ],
 };
 
 
 export const SKILLS: Skill[] = [
-    { name: 'ROS 2' },
-    { name: 'Python' },
-    { name: 'C++' },
-    { name: 'Java' },
-    { name: 'PyTorch' },
-    { name: 'OpenCV' },
-    { name: 'Mujoco' },
-    { name: 'PyBullet' },
-    { name: 'Linux' },
-    { name: 'Web Development' }
+    {
+        category: 'Programming Languages',
+        items: ['Python', 'C++', 'C', 'MATLAB', 'Java', 'JavaScript/TypeScript', 'SQL'],
+    },
+    {
+        category: 'Robotics & Motion Planning',
+        items: ['ROS 2', 'MuJoCo', 'Drake', 'OMPL', 'MoveIt', 'LeRobot', 'URDF'],
+    },
+    {
+        category: 'Hardware & Prototyping',
+        items: ['KUKA LBR iiwa 7 R800', 'AgileX PiPER', 'LeRobot SO-101', 'MyCobot-280', 'SCHUNK EGK-40', 'Intel RealSense D415', 'Orbbec-336L', 'camera calibration', '3D printing', 'circuit soldering'],
+    },
+    {
+        category: 'Machine Learning, Perception & 3D Geometry',
+        items: ['PyTorch', 'OpenCV', 'Open3D', 'NumPy', 'SciPy', 'VGGT', 'SAM2', 'GroundingDINO', 'FoundationPose', 'AnyGrasp', 'Trimesh', 'Hunyuan3D'],
+    },
+    {
+        category: 'Software Engineering',
+        items: ['Linux', 'Git', 'React', 'MySQL', 'MongoDB', 'AWS', 'Google Cloud'],
+    },
 ];
 
 
@@ -49,8 +60,10 @@ export const EDUCATION = [
         dates: "2025–present",
         gpa: "4.0 / 4.0",
         relevantCoursework: [
+            "CS 4803 - Advanced Robotic Manipulation",
+            "ECE 4560 - Introduction to Automation and Robotics",
+            "ECE 4550 - Control System Design",
             "CS 3630 - Introduction to Robotics and Perception",
-            "ECE 2035 - Programming for Hardware/Software Systems",
             "ECE 3550 - Feedback Control Systems",
             "ECE 3600 - Computer Communications",
         ],

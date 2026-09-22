@@ -1,12 +1,14 @@
 // src/App.tsx
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route, Link, NavLink as RRNavLink } from 'react-router-dom';
-import { Home, User, FolderGit2, FileText, Github, Linkedin, Mail } from 'lucide-react';
+import { Home, User, FolderGit2, FileText, Github, Linkedin, Mail, ArrowLeft } from 'lucide-react';
 import { SITE } from './content/site';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import HomePage from './pages/HomePage';
 import CVPage from './pages/CVPage';
+import SO101TeleopWalkthrough from './content/walkthrough';
+import SO101ImitationLearningWalkthrough2 from './content/walkthrough2';
 
 function cx(...classes: (string | false | undefined)[]) { return classes.filter(Boolean).join(' '); }
 function Container({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -26,6 +28,23 @@ function TopLink({ to, label, icon: Icon }: { to: string; label: string; icon: R
       <Icon className="w-4 h-4" />
       <span className="hidden sm:inline">{label}</span>
     </RRNavLink>
+  );
+}
+
+function WalkthroughPage({ children }: { children: React.ReactNode }) {
+  useEffect(() => window.scrollTo(0, 0), []);
+
+  return (
+    <Container className="py-8">
+      <Link
+        to="/projects"
+        className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back to projects
+      </Link>
+      {children}
+    </Container>
   );
 }
 
@@ -54,6 +73,8 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/so101-imitation-learning-3" element={<WalkthroughPage><SO101ImitationLearningWalkthrough2 /></WalkthroughPage>} />
+            <Route path="/projects/so101-imitation-learning-1-2" element={<WalkthroughPage><SO101TeleopWalkthrough /></WalkthroughPage>} />
             <Route path="/cv" element={<CVPage />} />
           </Routes>
         </main>

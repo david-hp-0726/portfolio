@@ -72,16 +72,26 @@ export default function AboutPage() {
                 {/* Skills */}
                 <section className="mt-10">
                     <h2 className="text-xl font-semibold tracking-tight">Skills</h2>
-                    <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
-                        {SKILLS.map((s) => (
-                            <li
-                                key={s.name}
-                                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-800"
+                    <div className="mt-4 grid gap-4 md:grid-cols-2">
+                        {SKILLS.map((group) => (
+                            <article
+                                key={group.category}
+                                className="rounded-xl border border-gray-200 p-4 dark:border-gray-800"
                             >
-                                {s.name}
-                            </li>
+                                <h3 className="font-semibold">{group.category}</h3>
+                                <div className="mt-3 flex flex-wrap gap-2">
+                                    {group.items.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </article>
                         ))}
-                    </ul>
+                    </div>
                 </section>
             </Container>
         </div>
