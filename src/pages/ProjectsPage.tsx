@@ -20,9 +20,23 @@ function ProjectCard({ p }: { p: Project }) {
     return (
         <article className="rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-900">
             {/* Image only */}
-            {p.image && (
-                <img className="w-full aspect-video object-cover" src={p.image} alt={p.name} />
-            )}
+            {p.video ? (
+                <video
+                    className="w-full aspect-video object-cover"
+                    src={p.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                />
+            ) : p.image ? (
+                <img
+                    className="w-full aspect-video object-cover"
+                    src={p.image}
+                    alt={p.name}
+                />
+            ) : null}
 
 
 

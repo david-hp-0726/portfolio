@@ -13,6 +13,17 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
+        name: "VLM Image-Editing Guided Trajectory Generation",
+        video: "/videos/demos.mp4",
+        bullets: [
+            "Built a VLM-based task planner converting human instructions and RGB-D images into physically verified 6D object goal poses.",
+            "Developed a perception module using VGGT for depth estimation and GroundingDINO + SAM2 + FoundationPose for pose estimation, and HunYuan3D for online mesh reconstruction.",
+            "Designed a novel VLM reasoning interface that identifies incorrect translational and rotational components, refines candidate poses, and physically validates them in MuJoCo.",
+            "Utilized AnyGrasp and OMPL RRT-Connect to generate grasps and collision-free trajectories, executed through ROS2 + Drake.",
+            "Achieved 74.07% task-planning and 71.76% real-robot execution success across nine manipulation tasks (160/216 and 155/216 trials), outperforming OmniManip (43.98%) and ReKep (32.87%) in task planning; parallel-world validation improved mesh-free execution from 42.59% to 60.19% (92/216 to 130/216).",
+        ]
+    },
+    {
         name: "SO101 End-to-End Imitation Learning 3rd Attempt",
         image: "/images/error_recovery.gif",
         expandable: true,
