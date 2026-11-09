@@ -1,6 +1,7 @@
 export type Project = {
     name: string;
     repo?: string;
+    arxiv?: string;
     video?: string;
     image?: string;
     expandable?: boolean;
@@ -13,8 +14,9 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
     {
-        name: "VLM Image-Editing Guided Trajectory Generation, Trustworthy Robotics Lab",
+        name: "VerifLM: Physically Verified Image-Edit-Guided Goal Pose Generation for Robotic Manipulation, Trustworthy Robotics Lab",
         video: "/videos/demos.mp4",
+        arxiv: "https://arxiv.org/abs/2611.03268",
         bullets: [
             "Built a VLM-based task planner converting human instructions and RGB-D images into physically verified 6D object goal poses.",
             "Developed a perception module using VGGT for depth estimation and GroundingDINO + SAM2 + FoundationPose for pose estimation, and HunYuan3D for online mesh reconstruction.",

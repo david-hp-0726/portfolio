@@ -54,6 +54,16 @@ function ProjectCard({ p }: { p: Project }) {
                                 Code <ExternalLink className="w-4 h-4" />
                             </a>
                         )}
+                        {p.arxiv && (
+                            <a
+                                href={p.arxiv}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1 text-sm hover:underline"
+                            >
+                                arXiv <ExternalLink className="w-4 h-4" />
+                            </a>
+                        )}
                     </div>
                 </div>
 
@@ -128,6 +138,16 @@ function ExpandableProjectCard({ p }: { p: Project }) {
                                 className="inline-flex items-center gap-1 text-sm hover:underline"
                             >
                                 Code <ExternalLink className="w-4 h-4" />
+                            </a>
+                        )}
+                        {p.arxiv && (
+                            <a
+                                href={p.arxiv}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-1 text-sm hover:underline"
+                            >
+                                arXiv <ExternalLink className="w-4 h-4" />
                             </a>
                         )}
                     </div>
